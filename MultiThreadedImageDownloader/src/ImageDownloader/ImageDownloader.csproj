@@ -50,6 +50,7 @@
     <Compile Include="ImageProvider.cs" />
     <Compile Include="ImageRetriever.cs" />
     <Compile Include="ITaskHandler.cs" />
+    <Compile Include="ParallelTaskHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuperImageDownloader.cs" />
     <Compile Include="SystemThreadTaskHandler.cs" />
