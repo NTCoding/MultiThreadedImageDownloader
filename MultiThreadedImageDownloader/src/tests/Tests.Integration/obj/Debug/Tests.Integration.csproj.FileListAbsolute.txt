@@ -1,0 +1,9 @@
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\bin\Debug\Tests.Integration.dll
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\bin\Debug\Tests.Integration.pdb
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\bin\Debug\nunit.framework.dll
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\bin\Debug\nunit.mocks.dll
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\bin\Debug\pnunit.framework.dll
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\bin\Debug\nunit.framework.xml
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\obj\Debug\Tests.Integration.dll
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\obj\Debug\Tests.Integration.pdb

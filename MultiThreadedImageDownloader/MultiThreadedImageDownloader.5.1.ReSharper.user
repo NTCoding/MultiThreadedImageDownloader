@@ -1,0 +1,77 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="public" priority="2" />
+      <Item value="void" priority="1" />
+      <Item value="var" priority="4" />
+      <Item value="new" priority="5" />
+      <Item value="downloader" priority="0" />
+      <Item value="downloadedImages" priority="0" />
+      <Item value="class" priority="0" />
+      <Item value="this" priority="0" />
+      <Item value="IEnumerable" priority="2" />
+      <Item value="DownloadedImageDTO`0" priority="1" />
+      <Item value="foreach" priority="2" />
+      <Item value="expected" priority="1" />
+      <Item value="Assert`0" priority="0" />
+      <Item value="d" priority="1" />
+      <Item value="return" priority="1" />
+      <Item value="first" priority="1" />
+      <Item value="second" priority="0" />
+      <Item value="String`0" priority="0" />
+      <Item value="byte" priority="2" />
+      <Item value="yield return" priority="1" />
+      <Item value="DownloadedImageDTO" priority="1" />
+      <Item value="s" priority="1" />
+      <Item value="urlForTestHtmlPage" priority="0" />
+      <Item value="GetTestingImageData`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
+      <Item value="AreEqual`0" priority="0" />
+      <Item value="That`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="Any`1" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/d:Resources/f:blah.html" caret="2488" fromTop="12" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="512" fromTop="14" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="1906" fromTop="25" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="2478" fromTop="33" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="2158" fromTop="21" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="2702" fromTop="33" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/d:Resources/f:blah.html" caret="0" fromTop="0" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/d:Resources/f:blah.html" caret="16899" fromTop="47" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="996" fromTop="18" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/d:Resources/f:blah.html" caret="16366" fromTop="0" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="970" fromTop="22" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="1762" fromTop="32" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="955" fromTop="16" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="332" fromTop="15" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="214" fromTop="10" />
+      <File id="D988AE32-FF3A-4536-872D-8A22B5548406/f:DownloadingImages.cs" caret="1588" fromTop="20" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files\NUnit 2.5.5\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
