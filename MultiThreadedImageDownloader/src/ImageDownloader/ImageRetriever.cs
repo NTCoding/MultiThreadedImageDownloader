@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -34,12 +35,13 @@ namespace ImageDownloader
 
 		private byte[] GetImageDataFor(string src)
 		{
-			return Client.DownloadData(src);
-		}
+			var request = WebRequest.Create(src);
+			var response = request.GetResponse();
 
-		protected WebClient Client
-		{
-			get { return client ?? (client = new WebClient()); }
+			using (var reader = new BinaryReader(response.GetResponseStream()))
+			{
+				return reader.ReadBytes((int)response.ContentLength);
+			}
 		}
 	}
 }
