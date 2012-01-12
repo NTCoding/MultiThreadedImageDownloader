@@ -53,6 +53,18 @@ namespace Tests
 			imageRetriever.AssertWasCalled(i => i.RetrieveFor(testSrcs));
 		}
 
+		[Test]
+		public void ShouldReturn_ReturnValuesFromImageRetriever()
+		{
+			var expected = new List<DownloadedImageDTO> {new DownloadedImageDTO("blah", null)};
+
+			imageRetriever.Stub(i => i.RetrieveFor(null)).Return(expected);
+
+			var actual = downloader.Download("blah");
+
+			Assert.AreEqual(expected, actual);
+		}
+
 		private string GetTestHtml()
 		{
 			return @"

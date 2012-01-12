@@ -23,9 +23,7 @@ namespace ImageDownloader
 
 			var srcs = parser.Parse(html, url);
 
-			imageRetriever.RetrieveFor(srcs);
-
-			return Enumerable.Empty<DownloadedImageDTO>();
+			return imageRetriever.RetrieveFor(srcs);
 		}
 	}
 }

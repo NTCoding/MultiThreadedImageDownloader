@@ -45,6 +45,7 @@
     <Compile Include="IImageParser.cs" />
     <Compile Include="IImageRetriever.cs" />
     <Compile Include="ImageParser.cs" />
+    <Compile Include="ImageRetriever.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuperImageDownloader.cs" />
   </ItemGroup>
