@@ -29,7 +29,7 @@ namespace Tests
 			
 			downloader.Download(testUrl);
 
-			parser.AssertWasCalled(p => p.Parse(GetTestHtml()));
+			parser.AssertWasCalled(p => p.Parse(GetTestHtml(), testUrl));
 		}
 
 		private string GetTestHtml()

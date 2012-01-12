@@ -21,17 +21,17 @@ namespace Tests
 		[Test]
 		public void ShouldParse1Image()
 		{
-			var testUrl = "http://www.blah.com";
+			var testSrc = "http://www.blah.com";
 
-			var result = parser.Parse(GetHtmlFor(new[] {testUrl}));
+			var result = parser.Parse(GetHtmlFor(new[] {testSrc}), "blah");
 
-			ShouldContainUrls(result, new[] {testUrl});
+			ShouldContainUrls(result, new[] {testSrc});
 		}
 
 		[Test]
 		public void ShouldParse5Images()
 		{
-			var testUrls = new[]
+			var testSrcs = new[]
 			               	{
 								"http://www.ntcoding.co.uk",
 								"http://www.struq.com",
@@ -40,15 +40,26 @@ namespace Tests
 								"http://www.planetf1.com"
 			               	};
 
-			var result = parser.Parse(GetHtmlFor(testUrls));
+			var result = parser.Parse(GetHtmlFor(testSrcs), "blah");
 
-			ShouldContainUrls(result, testUrls);
+			ShouldContainUrls(result, testSrcs);
 		}
 
 		[Test]
 		public void ShouldReturnFullSrc_ForAbsoluteUrls()
 		{
-			Assert.Fail();
+			var rootUrl = "http://www.struq.com/";
+			var testSrcs = new[]
+			               	{
+								"public/image/55.png",
+								"/public/images/44.png",
+								"blah/blah/blah/image.gif"
+			               	};
+			var absoluteSrcs = testSrcs.Select(t => (rootUrl + t).Replace(@"//", @"/"));
+
+			var result = parser.Parse(GetHtmlFor(testSrcs), "blah");
+
+			ShouldContainUrls(result, absoluteSrcs);
 		}
 
 		private string GetHtmlFor(IEnumerable<string> urls)
@@ -88,16 +99,24 @@ namespace Tests
 
 	public class ImageParser : IImageParser
 	{
-		public IEnumerable<string> Parse(string html)
+		public IEnumerable<string> Parse(string html, string url)
 		{
 			string regex = @"<img[^>]*?src\s*=\s*[""']?([^'"" >]+?)[ '""][^>]*?>";
 			var matches = Regex.Matches(html, regex, RegexOptions.IgnoreCase);
 			foreach (Match match in matches)
 			{
-				yield return match.Groups[1].Value;
+				yield return GetAbsoluteSrc(match, url);
 			}
 
 			
+		}
+
+		private string GetAbsoluteSrc(Match match, string url)
+		{
+			var src = match.Groups[1].Value;
+			return src.StartsWith("http")
+			       	? src
+			       	: url + src;
 		}
 	}
 }

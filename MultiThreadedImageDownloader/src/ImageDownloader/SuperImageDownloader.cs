@@ -20,7 +20,7 @@ namespace ImageDownloader
 			// get the resource
 			var html = htmlRetriever.GetHtml(url);
 
-			var urls = parser.Parse(html);
+			var urls = parser.Parse(html, url);
 
 			// fetch the images
 

@@ -4,6 +4,6 @@ namespace ImageDownloader
 {
 	public interface IImageParser
 	{
-		IEnumerable<string> Parse(string html);
+		IEnumerable<string> Parse(string html, string url);
 	}
 }
