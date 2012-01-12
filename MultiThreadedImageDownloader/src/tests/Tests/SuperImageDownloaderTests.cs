@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ImageDownloader;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -9,15 +10,17 @@ namespace Tests
 	public class SuperImageDownloaderTests
 	{
 		private IImageParser parser;
-		private IHtmlRetriever retriever;
+		private IHtmlRetriever htmlRetriever;
 		private SuperImageDownloader downloader;
+		private IImageRetriever imageRetriever;
 
 		[SetUp]
 		public void SetUp()
 		{
-			parser     = MockRepository.GenerateMock<IImageParser>();
-			retriever  = MockRepository.GenerateMock<IHtmlRetriever>();
-			downloader = new SuperImageDownloader(retriever, parser);
+			parser         = MockRepository.GenerateMock<IImageParser>();
+			htmlRetriever  = MockRepository.GenerateMock<IHtmlRetriever>();
+			imageRetriever = MockRepository.GenerateMock<IImageRetriever>();
+			downloader     = new SuperImageDownloader(htmlRetriever, parser, imageRetriever);
 		}
 
 		[Test]
@@ -25,11 +28,29 @@ namespace Tests
 		{
 			string testUrl = "www.test.blah";
 
-			retriever.Stub(r => r.GetHtml(testUrl)).Return(GetTestHtml());
+			htmlRetriever.Stub(r => r.GetHtml(testUrl)).Return(GetTestHtml());
 			
 			downloader.Download(testUrl);
 
 			parser.AssertWasCalled(p => p.Parse(GetTestHtml(), testUrl));
+		}
+
+		[Test]
+		public void ShouldPassParsedSrcs_ToImageRetriever()
+		{
+			string testUrl = "www.blah.com";
+
+			IEnumerable<string> testSrcs = new[]
+			                               	{
+												"http://www.blah.com",
+												"http://www.bbc.co.uk",
+			                               	};
+
+			parser.Stub(p => p.Parse(null, testUrl)).Return(testSrcs);
+
+			downloader.Download(testUrl);
+
+			imageRetriever.AssertWasCalled(i => i.RetrieveFor(testSrcs));
 		}
 
 		private string GetTestHtml()
