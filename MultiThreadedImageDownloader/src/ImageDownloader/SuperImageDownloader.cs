@@ -12,20 +12,19 @@ namespace ImageDownloader
 
 		public SuperImageDownloader(IHtmlRetriever htmlRetriever, IImageParser parser, IImageRetriever imageRetriever)
 		{
-			this.htmlRetriever = htmlRetriever;
-			this.parser  = parser;
+			this.htmlRetriever  = htmlRetriever;
 			this.imageRetriever = imageRetriever;
+			this.parser  = parser;
 		}
 
 		public IEnumerable<DownloadedImageDTO> Download(string url)
 		{
 			var html = htmlRetriever.GetHtml(url);
 
-			var urls = parser.Parse(html, url);
+			var srcs = parser.Parse(html, url);
 
-			// fetch the images
+			imageRetriever.RetrieveFor(srcs);
 
-			// convert the images))
 			return Enumerable.Empty<DownloadedImageDTO>();
 		}
 	}
