@@ -54,9 +54,14 @@ namespace Tests
 								"/public/images/44.png",
 								"blah/blah/blah/image.gif"
 			               	};
-			var absoluteSrcs = testSrcs.Select(t => (rootUrl + t).Replace(@"//", @"/"));
+			var absoluteSrcs = new[]
+			                   	{
+									"http://www.struq.com/public/image/55.png",
+									"http://www.struq.com/public/images/44.png",
+									"http://www.struq.com/blah/blah/blah/image.gif",
+			                   	};
 
-			var result = parser.Parse(GetHtmlFor(testSrcs), rootUrl);
+			var result = parser.Parse(GetHtmlFor(testSrcs), rootUrl).ToList();
 
 			ShouldContainUrls(result, absoluteSrcs);
 		}

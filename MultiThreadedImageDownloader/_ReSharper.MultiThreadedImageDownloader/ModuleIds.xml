@@ -2,4 +2,5 @@
   <Module PersistentId="11FE3040-90AF-43A7-9869-EC453351C6C6" ModuleId="Tests" />
   <Module PersistentId="D988AE32-FF3A-4536-872D-8A22B5548406" ModuleId="Tests.Integration" />
   <Module PersistentId="45DD73FE-DB67-4AE2-A869-CA292DAB2547" ModuleId="ImageDownloader" />
+  <Module PersistentId="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="mscorlib" />
 </Modules>

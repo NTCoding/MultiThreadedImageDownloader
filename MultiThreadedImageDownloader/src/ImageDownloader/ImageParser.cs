@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace ImageDownloader
@@ -22,7 +23,20 @@ namespace ImageDownloader
 			var src = match.Groups[1].Value;
 			return src.StartsWith("http")
 			       	? src
-			       	: (url + "/" + src).Replace("///", "/").Replace("//", "/");
+			       	: ConvertToAbsolute(src, url);
+		}
+
+		private string ConvertToAbsolute(string src, string url)
+		{
+			var host = url.EndsWith(@"/")
+			            	? url
+			            	: url + "/";
+
+			var path = src.StartsWith(@"/")
+			           	? src.Substring(1)
+			           	: src;
+
+			return host + path;
 		}
 	}
 }
