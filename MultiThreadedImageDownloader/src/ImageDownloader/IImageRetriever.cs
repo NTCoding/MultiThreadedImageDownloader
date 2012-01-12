@@ -4,6 +4,6 @@ namespace ImageDownloader
 {
 	public interface IImageRetriever
 	{
-		IEnumerable<DownloadedImageDTO> RetrieveFor(IEnumerable<string> testSrcs);
+		IEnumerable<DownloadedImageDTO> RetrieveFor(IEnumerable<string> srcs);
 	}
 }

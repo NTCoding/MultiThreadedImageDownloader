@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DownloadedImageDTO.cs" />
+    <Compile Include="HtmlRetriever.cs" />
     <Compile Include="IHtmlRetriever.cs" />
     <Compile Include="IImageParser.cs" />
     <Compile Include="IImageRetriever.cs" />

@@ -7,6 +7,8 @@ using NUnit.Framework;
 
 namespace Tests.Integration
 {
+	// TODO - this doesn't have a lot of value now - since we mock both important services
+	//        it was good for driving the design though
 	[TestFixture]
 	public class DownloadingImages
 	{
@@ -16,7 +18,7 @@ namespace Tests.Integration
 		public void GivenUrl_ForAnHtmlPage_ShouldDownloadAllImages()
 		{
 			// TOD - parameter
-			var downloader = new SuperImageDownloader(new TestHtmlRetriever(), new ImageParser(), new ImageRetriever());
+			var downloader = new SuperImageDownloader(new TestHtmlRetriever(), new ImageParser(), new TestImageRetriever());
 			var downloadedImages = downloader.Download(UrlForTestHtmlPage);
 
 			downloadedImages.ShouldMatch(GetImagesInTestHtmlPage());
@@ -71,6 +73,22 @@ namespace Tests.Integration
 		// TODO - Implement using Rx extensions if have time
 	}
 
+	public class TestImageRetriever : IImageRetriever
+	{
+		public IEnumerable<DownloadedImageDTO> RetrieveFor(IEnumerable<string> srcs)
+		{
+			foreach (var testSrc in srcs)
+			{
+				yield return new DownloadedImageDTO(testSrc, new[]
+				                                             	{
+				                                             		(byte) 1,
+				                                             		(byte) 2,
+				                                             		(byte) 3
+				                                             	});
+			}
+		}
+	}
+
 	public class TestHtmlRetriever : IHtmlRetriever
 	{
 		public string GetHtml(string url)
@@ -88,7 +106,7 @@ namespace Tests.Integration
 		{
 			foreach (var dto in actual)
 			{
-				Assert.That(expected.Any(d => IsMatch(d, dto)));
+				Assert.That(expected.Any(d => IsMatch(d, dto)), "No match for: " + dto.URL);
 			}
 		}
 
