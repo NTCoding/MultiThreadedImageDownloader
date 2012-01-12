@@ -15,7 +15,7 @@ namespace Tests
 		public void SetUp()
 		{
 			provider = MockRepository.GenerateMock<IImageProvider>();
-			retriever = new ImageRetriever(provider);
+			retriever = new ImageRetriever(provider, MockRepository.GenerateMock<ITaskHandler>());
 		}
 
 		[Test]
