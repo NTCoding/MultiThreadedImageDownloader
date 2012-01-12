@@ -44,8 +44,10 @@
     <Compile Include="HtmlRetriever.cs" />
     <Compile Include="IHtmlRetriever.cs" />
     <Compile Include="IImageParser.cs" />
+    <Compile Include="IImageProvider.cs" />
     <Compile Include="IImageRetriever.cs" />
     <Compile Include="ImageParser.cs" />
+    <Compile Include="ImageProvider.cs" />
     <Compile Include="ImageRetriever.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuperImageDownloader.cs" />

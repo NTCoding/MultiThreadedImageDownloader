@@ -10,9 +10,9 @@ namespace Tests
 		[Test]
 		public void DownloadImages()
 		{
-			var downloader = new SuperImageDownloader(new HtmlRetriever(), new ImageParser(), new ImageRetriever());
+			var downloader = new SuperImageDownloader(new HtmlRetriever(), new ImageParser(), new ImageRetriever(new ImageProvider()));
 
-			var images = downloader.Download("http://www.struq.com");
+			var images = downloader.Download("http://www.bbc.co.uk");
 
 			foreach (var item in images)
 			{

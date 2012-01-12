@@ -1,23 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using ImageDownloader;
 using NUnit.Framework;
+using Tests.Integration.Utils;
 
 namespace Tests.Integration
 {
 	// TODO - this doesn't have a lot of value now - since we mock both important services
-	//        it was good for driving the design though
+	//        it was good for driving the design though and if I have time to split the logic
 	[TestFixture]
 	public class DownloadingImages
 	{
 		private const string UrlForTestHtmlPage = "http://www.test.blah/";
 
+		// TODO - make this work anyway
 		[Test]
 		public void GivenUrl_ForAnHtmlPage_ShouldDownloadAllImages()
 		{
-			// TOD - parameter
 			var downloader = new SuperImageDownloader(new TestHtmlRetriever(), new ImageParser(), new TestImageRetriever());
 			var downloadedImages = downloader.Download(UrlForTestHtmlPage);
 
@@ -97,24 +97,6 @@ namespace Tests.Integration
 			var htmlPath = Path.Combine(projRoot, "Resources", "blah.html");
 
 			return File.ReadAllText(htmlPath);
-		}
-	}
-
-	public static class DownloadedImageDTOAssertions
-	{
-		public static void ShouldMatch (this IEnumerable<DownloadedImageDTO> expected, IEnumerable<DownloadedImageDTO> actual)
-		{
-			foreach (var dto in actual)
-			{
-				Assert.That(expected.Any(d => IsMatch(d, dto)), "No match for: " + dto.URL);
-			}
-		}
-
-		// TODO - move into a comparer
-		private static bool IsMatch(DownloadedImageDTO first, DownloadedImageDTO second)
-		{
-			return first.URL == second.URL
-			       && first.Data == second.Data;
 		}
 	}
 }

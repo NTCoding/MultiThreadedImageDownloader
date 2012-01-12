@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace ImageDownloader
 {
-	// TODO - we could test this and delegate calling fetching the resource to a resource fetcher
 	public class ImageRetriever : IImageRetriever
 	{
-		private WebClient client;
+		private readonly IImageProvider provider;
+
+		public ImageRetriever(IImageProvider provider)
+		{
+			this.provider = provider;
+		}
 
 		public IEnumerable<DownloadedImageDTO> RetrieveFor(IEnumerable<string> srcs)
 		{
@@ -38,7 +42,7 @@ namespace ImageDownloader
 		{
 			try
 			{
-				return GetImageDataFor(src);
+				return provider.GetImage(src);
 			}
 			catch (Exception)
 			{
@@ -49,17 +53,6 @@ namespace ImageDownloader
 				return new byte[0];
 			}
 			
-		}
-
-		private byte[] GetImageDataFor(string src)
-		{
-			var request = WebRequest.Create(src);
-			var response = request.GetResponse();
-
-			using (var reader = new BinaryReader(response.GetResponseStream()))
-			{
-				return reader.ReadBytes((int)response.ContentLength);
-			}
 		}
 	}
 }
