@@ -57,7 +57,7 @@ namespace Tests
 			               	};
 			var absoluteSrcs = testSrcs.Select(t => (rootUrl + t).Replace(@"//", @"/"));
 
-			var result = parser.Parse(GetHtmlFor(testSrcs), "blah");
+			var result = parser.Parse(GetHtmlFor(testSrcs), rootUrl);
 
 			ShouldContainUrls(result, absoluteSrcs);
 		}
@@ -116,7 +116,7 @@ namespace Tests
 			var src = match.Groups[1].Value;
 			return src.StartsWith("http")
 			       	? src
-			       	: url + src;
+			       	: (url + "/" + src).Replace("///", "/").Replace("//", "/");
 		}
 	}
 }
