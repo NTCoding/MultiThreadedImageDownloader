@@ -23,11 +23,32 @@ namespace Tests
 		{
 			var testUrl = "http://www.blah.com";
 
-			string html = GetHtmlFor(new[] {testUrl});
-
-			var result = parser.Parse(html);
+			var result = parser.Parse(GetHtmlFor(new[] {testUrl}));
 
 			ShouldContainUrls(result, new[] {testUrl});
+		}
+
+		[Test]
+		public void ShouldParse5Images()
+		{
+			var testUrls = new[]
+			               	{
+								"http://www.ntcoding.co.uk",
+								"http://www.struq.com",
+								"http://www.bbc.co.uk",
+								"http://www.google.co.uk",
+								"http://www.planetf1.com"
+			               	};
+
+			var result = parser.Parse(GetHtmlFor(testUrls));
+
+			ShouldContainUrls(result, testUrls);
+		}
+
+		[Test]
+		public void ShouldReturnFullSrc_ForAbsoluteUrls()
+		{
+			Assert.Fail();
 		}
 
 		private string GetHtmlFor(IEnumerable<string> urls)
@@ -62,17 +83,7 @@ namespace Tests
 			}
 		}
 
-		[Test]
-		public void ShouldParse5Images()
-		{
-			Assert.Fail();
-		}
-
-		[Test]
-		public void ShouldReturnFull_ForAbsoluteUrls()
-		{
-			Assert.Fail();
-		}
+		
 	}
 
 	public class ImageParser : IImageParser
