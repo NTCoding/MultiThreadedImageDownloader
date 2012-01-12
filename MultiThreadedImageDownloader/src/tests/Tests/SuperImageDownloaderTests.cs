@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using ImageDownloader;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -18,7 +17,7 @@ namespace Tests
 		{
 			parser     = MockRepository.GenerateMock<IImageParser>();
 			retriever  = MockRepository.GenerateMock<IHtmlRetriever>();
-			downloader = new SuperImageDownloader();
+			downloader = new SuperImageDownloader(retriever, parser);
 		}
 
 		[Test]
@@ -45,15 +44,5 @@ namespace Tests
 					  </html>
 					";
 		}
-	}
-
-	public interface IImageParser
-	{
-		IEnumerable<string> Parse(string html);
-	}
-
-	public interface IHtmlRetriever
-	{
-		string GetHtml(string url);
 	}
 }

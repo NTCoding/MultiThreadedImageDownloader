@@ -13,7 +13,8 @@ namespace Tests.Integration
 		[Test]
 		public void GivenUrl_ForAnHtmlPage_ShouldDownloadAllImages()
 		{
-			var downloader = new SuperImageDownloader();
+			// TOD - parameter
+			var downloader = new SuperImageDownloader(null, null);
 			var downloadedImages = downloader.Download(UrlForTestHtmlPage);
 
 			downloadedImages.ShouldMatch(GetImagesInTestHtmlPage());
