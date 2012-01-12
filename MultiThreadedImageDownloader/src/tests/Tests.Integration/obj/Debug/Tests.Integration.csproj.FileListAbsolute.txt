@@ -9,3 +9,4 @@ C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageD
 C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\obj\Debug\Tests.Integration.pdb
 C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\bin\Debug\ImageDownloader.dll
 C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\bin\Debug\ImageDownloader.pdb
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests.Integration\bin\Debug\Rhino.Mocks.dll

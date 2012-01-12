@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ImageDownloader;
 using NUnit.Framework;
@@ -14,7 +16,7 @@ namespace Tests.Integration
 		public void GivenUrl_ForAnHtmlPage_ShouldDownloadAllImages()
 		{
 			// TOD - parameter
-			var downloader = new SuperImageDownloader(null, null);
+			var downloader = new SuperImageDownloader(new TestHtmlRetriever(), null);
 			var downloadedImages = downloader.Download(UrlForTestHtmlPage);
 
 			downloadedImages.ShouldMatch(GetImagesInTestHtmlPage());
@@ -67,6 +69,17 @@ namespace Tests.Integration
 		}
 
 		// TODO - Implement using Rx extensions if have time
+	}
+
+	public class TestHtmlRetriever : IHtmlRetriever
+	{
+		public string GetHtml(string url)
+		{
+			var projRoot = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName + "\\Tests.Integration";
+			var htmlPath = Path.Combine(projRoot, "Resources", "blah.html");
+
+			return File.ReadAllText(htmlPath);
+		}
 	}
 
 	public static class DownloadedImageDTOAssertions
