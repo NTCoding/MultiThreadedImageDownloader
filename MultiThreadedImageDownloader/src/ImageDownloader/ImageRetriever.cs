@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
@@ -29,8 +30,25 @@ namespace ImageDownloader
 
 		private void AddImageFor(string src, ref List<DownloadedImageDTO> images)
 		{
-			var dto = new DownloadedImageDTO(src, GetImageDataFor(src));
+			var dto = new DownloadedImageDTO(src, TryGetImageDataFor(src));
 			images.Add(dto);
+		}
+
+		private byte[] TryGetImageDataFor(string src)
+		{
+			try
+			{
+				return GetImageDataFor(src);
+			}
+			catch (Exception)
+			{
+				// TODO - This would be more involved logic - some images may correctly not exist,
+				//        while it could be a bug in the system. Manually log for now
+				EventLog.WriteEntry("Application", "Failed to get image for: " + src);
+				Console.WriteLine("Failed to get image for: " + src);
+				return new byte[0];
+			}
+			
 		}
 
 		private byte[] GetImageDataFor(string src)

@@ -12,9 +12,9 @@ namespace Tests
 		{
 			var downloader = new SuperImageDownloader(new HtmlRetriever(), new ImageParser(), new ImageRetriever());
 
-			var result = downloader.Download("http://www.bbc.co.uk");
+			var images = downloader.Download("http://www.struq.com");
 
-			foreach (var item in result)
+			foreach (var item in images)
 			{
 				Console.WriteLine(item.URL);
 			}
