@@ -7,24 +7,22 @@ using Tests.Integration.Utils;
 
 namespace Tests.Integration
 {
-	// TODO - this doesn't have a lot of value now - since we mock both important services
-	//        it was good for driving the design though and if I have time to split the logic
 	[TestFixture]
 	public class DownloadingImages
 	{
 		private const string UrlForTestHtmlPage = "http://www.test.blah/";
 
-		// TODO - make this work anyway
 		[Test]
 		public void GivenUrl_ForAnHtmlPage_ShouldDownloadAllImages()
 		{
-			var downloader = new SuperImageDownloader(new TestHtmlRetriever(), new ImageParser(), new TestImageRetriever());
+			var downloader = new SuperImageDownloader(new TestHtmlRetriever(), new ImageParser(), new ImageRetriever(new TestImageProvider(), new SystemThreadTaskHandler()));
 			var downloadedImages = downloader.Download(UrlForTestHtmlPage);
 
 			downloadedImages.ShouldMatch(GetImagesInTestHtmlPage());
 		}
 
-		// Move into a test helper
+		// TODO - Add a different test for each implementation of task handler here
+
 		private IEnumerable<DownloadedImageDTO> GetImagesInTestHtmlPage()
 		{
 			var absolute = new[]
@@ -69,8 +67,14 @@ namespace Tests.Integration
 			       		(byte) 3
 			       	};
 		}
+	}
 
-		// TODO - Implement using Rx extensions if have time
+	public class TestImageProvider : IImageProvider
+	{
+		public byte[] GetImage(string src)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	public class TestImageRetriever : IImageRetriever
