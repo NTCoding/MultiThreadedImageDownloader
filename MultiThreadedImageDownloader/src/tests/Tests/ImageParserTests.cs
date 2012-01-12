@@ -23,14 +23,34 @@ namespace Tests
 		{
 			var testUrl = "http://www.blah.com";
 
-			var html = @"
-							<html><head></head><body>
-							<img src=""" + testUrl + @"""/></body></body></html>""";
-							
+			string html = GetHtmlFor(new[] {testUrl});
 
 			var result = parser.Parse(html);
 
 			ShouldContainUrls(result, new[] {testUrl});
+		}
+
+		private string GetHtmlFor(IEnumerable<string> urls)
+		{
+			var start = @"<html><head></head><body>";
+			var end = @"</body></body></html>""";
+
+			var html = start;
+			foreach (var image in GetImages(urls))
+			{
+				html += image;
+			}
+
+			return html + end;
+
+		}
+
+		private IEnumerable<string> GetImages(IEnumerable<string> url)
+		{
+			foreach (var u in url)
+			{
+				yield return @"<img src=""" + u + @""" />";
+			}
 		}
 
 		private void ShouldContainUrls(IEnumerable<string> result, IEnumerable<string> expected)
