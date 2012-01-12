@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using ImageDownloader;
 using NUnit.Framework;
 
@@ -54,12 +55,18 @@ namespace Tests
 		}
 	}
 
-	internal class ImageParser : IImageParser
+	public class ImageParser : IImageParser
 	{
 		public IEnumerable<string> Parse(string html)
 		{
+			string regex = @"<img[^>]*?src\s*=\s*[""']?([^'"" >]+?)[ '""][^>]*?>";
+			var matches = Regex.Matches(html, regex, RegexOptions.IgnoreCase);
+			foreach (Match match in matches)
+			{
+				yield return match.Groups[1].Value;
+			}
 
-			return Enumerable.Empty<string>();
+			
 		}
 	}
 }
