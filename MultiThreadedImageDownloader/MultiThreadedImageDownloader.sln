@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "src\tests\Tests\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration", "src\tests\Tests.Integration\Tests.Integration.csproj", "{D988AE32-FF3A-4536-872D-8A22B5548406}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageDownloader", "src\ImageDownloader\ImageDownloader.csproj", "{45DD73FE-DB67-4AE2-A869-CA292DAB2547}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{D988AE32-FF3A-4536-872D-8A22B5548406}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D988AE32-FF3A-4536-872D-8A22B5548406}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D988AE32-FF3A-4536-872D-8A22B5548406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45DD73FE-DB67-4AE2-A869-CA292DAB2547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45DD73FE-DB67-4AE2-A869-CA292DAB2547}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45DD73FE-DB67-4AE2-A869-CA292DAB2547}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45DD73FE-DB67-4AE2-A869-CA292DAB2547}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

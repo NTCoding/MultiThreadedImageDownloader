@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using ImageDownloader;
 using NUnit.Framework;
 
 namespace Tests.Integration
@@ -13,7 +13,7 @@ namespace Tests.Integration
 		[Test]
 		public void GivenUrl_ForAnHtmlPage_ShouldDownloadAllImages()
 		{
-			var downloader = new ImageDownloader();
+			var downloader = new SuperImageDownloader();
 			var downloadedImages = downloader.Download(UrlForTestHtmlPage);
 
 			downloadedImages.ShouldMatch(GetImagesInTestHtmlPage());
@@ -66,27 +66,6 @@ namespace Tests.Integration
 		}
 
 		// TODO - Implement using Rx extensions if have time
-	}
-
-	public class ImageDownloader
-	{
-		public IEnumerable<DownloadedImageDTO> Download(string url)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	public class DownloadedImageDTO
-	{
-		public DownloadedImageDTO(string url, byte[] data)
-		{
-			URL = url;
-			Data = data;
-		}
-
-		public String URL { get; private set; }
-
-		public byte[] Data { get; private set; }
 	}
 
 	public static class DownloadedImageDTOAssertions

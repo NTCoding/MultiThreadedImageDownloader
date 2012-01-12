@@ -1,0 +1,5 @@
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests\bin\Debug\Tests.dll
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests\bin\Debug\Tests.pdb
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests\obj\Debug\Tests.dll
+C:\Users\Administrator\Documents\Software Development\Github\MultiThreadedImageDownloader\MultiThreadedImageDownloader\src\tests\Tests\obj\Debug\Tests.pdb
