@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ImageDownloader
 {
@@ -7,7 +8,14 @@ namespace ImageDownloader
 	{
 		public IEnumerable<DownloadedImageDTO> Download(string url)
 		{
-			throw new NotImplementedException();
+			// get the resource
+
+			// parse the image urls
+
+			// fetch the images
+
+			// convert the images
+			return Enumerable.Empty<DownloadedImageDTO>();
 		}
 	}
 }
